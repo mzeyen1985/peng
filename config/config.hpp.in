@@ -1,0 +1,19 @@
+#pragma once
+
+#include <string>
+#include <unordered_map>
+
+#include <peng_export.hpp>
+
+// operating system detection flags
+#cmakedefine PENG_WINDOWS
+#cmakedefine PENG_APPLE
+#cmakedefine PENG_LINUX
+
+// compiler detection flags
+#cmakedefine PENG_MSVC
+#cmakedefine PENG_GCC
+#cmakedefine PENG_CLANG
+
+// constructor parameters container
+using config_t = std::unordered_map<std::string, std::string>;

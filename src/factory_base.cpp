@@ -9,6 +9,18 @@ namespace maze
     {
 
 
+        const std::string & factory_base::interface_name() const
+        {
+            return "";
+        }
+
+
+        const std::string & factory_base::plugin_name() const
+        {
+            return "";
+        }
+        
+        
         bool factory_base::is_compatible(const factory_base *factory) const
         {
             // compare plugin types

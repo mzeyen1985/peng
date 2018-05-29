@@ -11,7 +11,7 @@ namespace maze
     {
 
 
-        class plugin
+        class plugin_loader
         {
         public:
             plugin() = default;

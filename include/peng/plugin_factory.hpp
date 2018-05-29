@@ -1,5 +1,11 @@
 #pragma once
 
+#include <typeinfo>
+#include <string>
+
+#include <peng/config.hpp>
+#include <peng/demangler.hpp>
+
 
 
 
@@ -10,10 +16,15 @@ namespace maze
 
 
         template<typename S, typename T>
-        class plugin_factory : public plugin_base_factory<T>
+        class PENG_EXPORT plugin_factory : public T
         {
         public:
             T * create(const config_t &config);
+
+            const std::string & plugin_name() const override;
+
+        protected:
+            std::string plugin_name_m = demangler::apply(typeid(S).name());
         };
 
 

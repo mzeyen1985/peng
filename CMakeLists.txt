@@ -39,8 +39,12 @@ option(${NAME_ID}_DOXYGEN_RELEASE_ONLY
     ON
 )
 
+# create config file
+add_subdirectory(config)
+
 # add source files
 set(PROJECT_SOURCE_FILES
+    src/version.cpp
 )
 
 # add header files
@@ -49,10 +53,8 @@ set(PROJECT_HEADER_FILES
 
 # add interface header files
 set(PROJECT_INTERFACE_HEADER_FILES
+    include/peng/version.hpp
 )
-
-# 3rdparty libraries
-add_subdirectory(3rdparty/googletest)
 
 # add test target
 if(${NAME_ID}_TESTS)
@@ -69,6 +71,9 @@ if(${NAME_ID}_DOXYGEN)
         add_subdirectory(docs)
     endif()
 endif()
+
+# include packages
+include(GenerateExportHeader)
 
 # add library targets
 if(${NAME_ID}_BUILD_STATIC)
@@ -92,9 +97,17 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_EXTENSIONS OFF
 )
 
+# generate export header
+set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
+generate_export_header(${PROJECT_NAME}
+    EXPORT_FILE_NAME ${PROJECT_NAME}/peng_export.hpp
+)
+
 # add include directories
 target_include_directories(${PROJECT_NAME}
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
+    PUBLIC ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 # add library dependencies
@@ -121,6 +134,7 @@ endif()
 if(${NAME_ID}_INSTALL)
     install(FILES
         ${PROJECT_INTERFACE_HEADER_FILES}
+        ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}/peng_export.hpp
         DESTINATION include/${PROJECT_NAME}
     )
 endif()

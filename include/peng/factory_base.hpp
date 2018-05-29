@@ -3,6 +3,7 @@
 #include <string>
 
 #include <peng/version.hpp>
+#include <peng/config.hpp>
 
 
 
@@ -13,12 +14,13 @@ namespace maze
     {
 
 
-        class factory_base
+        class PENG_EXPORT factory_base
         {
         public:
             virtual ~factory_base() = default;
 
-            virtual const std::string & plugin_type() const = 0;
+            virtual const std::string & interface_name() const;
+            virtual const std::string & plugin_name() const;
             virtual const version & current_version() const = 0;
             virtual const version & minimum_version() const = 0;
 

@@ -1,5 +1,7 @@
-# VSCode Settings
+# VSCode Settings and test build directories
 .vscode/
+build/
+install/
 
 # Prerequisites
 *.d

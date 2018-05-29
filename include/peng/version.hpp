@@ -3,6 +3,8 @@
 #include <cstdint>
 #include <initializer_list>
 
+#include <peng/config.hpp>
+
 
 
 
@@ -12,7 +14,7 @@ namespace maze
     {
 
 
-        class version
+        class PENG_EXPORT version
         {
         public:
             version();
