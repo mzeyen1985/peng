@@ -19,6 +19,8 @@ namespace maze
         class PENG_EXPORT plugin_base_factory : public factory_base
         {
         public:
+            using plugin_base = T;
+
             virtual ~plugin_base_factory() = default;
 
             virtual T * create(const config_t &config) = 0;

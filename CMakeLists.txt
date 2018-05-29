@@ -56,6 +56,11 @@ set(PROJECT_INTERFACE_HEADER_FILES
     include/peng/version.hpp
 )
 
+# 3rdparty dependencies
+if(WIN32)
+    add_subdirectory(3rdparty/dirent-1.23.2)
+endif()
+
 # add test target
 if(${NAME_ID}_TESTS)
     add_subdirectory(tests)
@@ -111,8 +116,11 @@ target_include_directories(${PROJECT_NAME}
 )
 
 # add library dependencies
-target_link_libraries(${PROJECT_NAME}
-)
+if(WIN32)
+    target_link_libraries(${PROJECT_NAME}
+        PRIVATE dirent
+    )
+endif()
 
 # install instructions
 if(${NAME_ID}_BUILD_STATIC AND ${NAME_ID}_INSTALL)

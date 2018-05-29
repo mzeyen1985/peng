@@ -19,7 +19,7 @@ namespace maze
         class PENG_EXPORT plugin_factory : public T
         {
         public:
-            T * create(const config_t &config);
+            T::plugin_base * create(const config_t &config);
 
             const std::string & plugin_name() const override;
 
