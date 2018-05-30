@@ -11,7 +11,7 @@ namespace maze
     {
 
 
-        class plugin_manager
+        class PENG_EXPORT plugin_manager
         {
         public:
             plugin_manager() = delete;
@@ -20,7 +20,7 @@ namespace maze
 
         private:
             std::string plugin_dir;
-        }
+        };
 
 
     }
