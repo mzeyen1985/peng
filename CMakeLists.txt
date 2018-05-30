@@ -39,9 +39,6 @@ option(${NAME_ID}_DOXYGEN_RELEASE_ONLY
     ON
 )
 
-# create config file
-add_subdirectory(config)
-
 # add source files
 set(PROJECT_SOURCE_FILES
     src/version.cpp
