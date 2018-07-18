@@ -64,10 +64,10 @@
     #endif
 #else
     #ifndef PENG_EXPORT
-        #define PENG_EXPORT __attribute__ ((visibility ("default"))
+        #define PENG_EXPORT __attribute__ ((visibility ("default")))
     #endif
     #ifndef PENG_NO_EXPORT
-        #define PENG_NO_EXPORT __attribute__ ((visibility ("hidden"))
+        #define PENG_NO_EXPORT __attribute__ ((visibility ("hidden")))
     #endif
 #endif
 
