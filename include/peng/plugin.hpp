@@ -19,12 +19,12 @@ namespace maze
     {
 
 
-        class plugin_loader
+        class plugin
         {
         public:
-            plugin_loader() = delete;
-            plugin_loader(const std::string &path);
-            ~plugin_loader();
+            plugin() = delete;
+            plugin(const std::string &path);
+            ~plugin();
 
             // static plugin * load(const std::string &path);
             void * symbol(const std::string &name);

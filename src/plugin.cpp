@@ -1,4 +1,4 @@
-#include <peng/plugin_loader.hpp>
+#include <peng/plugin.hpp>
 
 #include <stdexcept>
 
@@ -11,7 +11,7 @@ namespace maze
     {
 
 
-        plugin_loader::plugin_loader(const std::string &path)
+        plugin::plugin(const std::string &path)
         {
             if(path.empty())
             {
@@ -42,7 +42,7 @@ namespace maze
         }
 
 
-        plugin_loader::~plugin_loader()
+        plugin::~plugin()
         {
             if(this->handle != nullptr)
             {
@@ -56,7 +56,7 @@ namespace maze
         }
 
 
-        void * plugin_loader::symbol(const std::string &name)
+        void * plugin::symbol(const std::string &name)
         {
             if(this->handle == nullptr)
             {
