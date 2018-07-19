@@ -18,16 +18,15 @@ namespace maze
         class plugin;
 
 
-        class PENG_EXPORT plugin_manager
+        class plugin_manager
         {
         public:
             plugin_manager() = default;
             ~plugin_manager();
 
-            void load(const std::string &folder, const std::string &plugin_name, bool recursive=true);
-            void unload(const std::string &plugin_name);
-            void connect(const std::string &plugin_name);
-            void disconnect(const std::string &plugin_name);
+            void add_plugin(const plugin &plug);
+            void add_factory(const factory_base &factory);
+            void remove_plugin(const std::string &plugin_name);
 
         private:
             template<typename T> using store = std::unordered_map<std::string, T>;
